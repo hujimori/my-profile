@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>resume.md</title>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+
+    <style>
+      /* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+      /*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+      body {
+        font-family: var(
+          --vscode-markdown-font-family,
+          -apple-system,
+          BlinkMacSystemFont,
+          'Segoe WPC',
+          'Segoe UI',
+          'Ubuntu',
+          'Droid Sans',
+          sans-serif
+        );
+        font-size: var(--vscode-markdown-font-size, 14px);
+        padding: 0 26px;
+        line-height: var(--vscode-markdown-line-height, 22px);
+        word-wrap: break-word;
+      }
+
+      #code-csp-warning {
+        position: fixed;
+        top: 0;
+        right: 0;
+        color: white;
+        margin: 16px;
+        text-align: center;
+        font-size: 12px;
+        font-family: sans-serif;
+        background-color: #444444;
+        cursor: pointer;
+        padding: 6px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.25);
+      }
+
+      #code-csp-warning:hover {
+        text-decoration: none;
+        background-color: #007acc;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.25);
+      }
+
+      body.scrollBeyondLastLine {
+        margin-bottom: calc(100vh - 22px);
+      }
+
+      body.showEditorSelection .code-line {
+        position: relative;
+      }
+
+      body.showEditorSelection .code-active-line:before,
+      body.showEditorSelection .code-line:hover:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        left: -12px;
+        height: 100%;
+      }
+
+      body.showEditorSelection li.code-active-line:before,
+      body.showEditorSelection li.code-line:hover:before {
+        left: -30px;
+      }
+
+      .vscode-light.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.15);
+      }
+
+      .vscode-light.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(0, 0, 0, 0.4);
+      }
+
+      .vscode-light.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-dark.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.4);
+      }
+
+      .vscode-dark.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 255, 255, 0.6);
+      }
+
+      .vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-active-line:before {
+        border-left: 3px solid rgba(255, 160, 0, 0.7);
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-line:hover:before {
+        border-left: 3px solid rgba(255, 160, 0, 1);
+      }
+
+      .vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+        border-left: none;
+      }
+
+      img {
+        max-width: 100%;
+        max-height: 100%;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      a:hover {
+        text-decoration: underline;
+      }
+
+      a:focus,
+      input:focus,
+      select:focus,
+      textarea:focus {
+        outline: 1px solid -webkit-focus-ring-color;
+        outline-offset: -1px;
+      }
+
+      hr {
+        border: 0;
+        height: 2px;
+        border-bottom: 2px solid;
+      }
+
+      h1 {
+        padding-bottom: 0.3em;
+        line-height: 1.2;
+        border-bottom-width: 1px;
+        border-bottom-style: solid;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: normal;
+      }
+
+      table {
+        border-collapse: collapse;
+      }
+
+      table > thead > tr > th {
+        text-align: left;
+        border-bottom: 1px solid;
+      }
+
+      table > thead > tr > th,
+      table > thead > tr > td,
+      table > tbody > tr > th,
+      table > tbody > tr > td {
+        padding: 5px 10px;
+      }
+
+      table > tbody > tr + tr > td {
+        border-top: 1px solid;
+      }
+
+      blockquote {
+        margin: 0 7px 0 5px;
+        padding: 0 16px 0 10px;
+        border-left-width: 5px;
+        border-left-style: solid;
+      }
+
+      code {
+        font-family: Menlo, Monaco, Consolas, 'Droid Sans Mono', 'Courier New', monospace, 'Droid Sans Fallback';
+        font-size: 1em;
+        line-height: 1.357em;
+      }
+
+      body.wordWrap pre {
+        white-space: pre-wrap;
+      }
+
+      pre:not(.hljs),
+      pre.hljs code > div {
+        padding: 16px;
+        border-radius: 3px;
+        overflow: auto;
+      }
+
+      pre code {
+        color: var(--vscode-editor-foreground);
+        tab-size: 4;
+      }
+
+      /** Theming */
+
+      .vscode-light pre {
+        background-color: rgba(220, 220, 220, 0.4);
+      }
+
+      .vscode-dark pre {
+        background-color: rgba(10, 10, 10, 0.4);
+      }
+
+      .vscode-high-contrast pre {
+        background-color: rgb(0, 0, 0);
+      }
+
+      .vscode-high-contrast h1 {
+        border-color: rgb(0, 0, 0);
+      }
+
+      .vscode-light table > thead > tr > th {
+        border-color: rgba(0, 0, 0, 0.69);
+      }
+
+      .vscode-dark table > thead > tr > th {
+        border-color: rgba(255, 255, 255, 0.69);
+      }
+
+      .vscode-light h1,
+      .vscode-light hr,
+      .vscode-light table > tbody > tr + tr > td {
+        border-color: rgba(0, 0, 0, 0.18);
+      }
+
+      .vscode-dark h1,
+      .vscode-dark hr,
+      .vscode-dark table > tbody > tr + tr > td {
+        border-color: rgba(255, 255, 255, 0.18);
+      }
+    </style>
+
+    <style>
+      /* Tomorrow Theme */
+      /* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+      /* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+      /* Tomorrow Comment */
+      .hljs-comment,
+      .hljs-quote {
+        color: #8e908c;
+      }
+
+      /* Tomorrow Red */
+      .hljs-variable,
+      .hljs-template-variable,
+      .hljs-tag,
+      .hljs-name,
+      .hljs-selector-id,
+      .hljs-selector-class,
+      .hljs-regexp,
+      .hljs-deletion {
+        color: #c82829;
+      }
+
+      /* Tomorrow Orange */
+      .hljs-number,
+      .hljs-built_in,
+      .hljs-builtin-name,
+      .hljs-literal,
+      .hljs-type,
+      .hljs-params,
+      .hljs-meta,
+      .hljs-link {
+        color: #f5871f;
+      }
+
+      /* Tomorrow Yellow */
+      .hljs-attribute {
+        color: #eab700;
+      }
+
+      /* Tomorrow Green */
+      .hljs-string,
+      .hljs-symbol,
+      .hljs-bullet,
+      .hljs-addition {
+        color: #718c00;
+      }
+
+      /* Tomorrow Blue */
+      .hljs-title,
+      .hljs-section {
+        color: #4271ae;
+      }
+
+      /* Tomorrow Purple */
+      .hljs-keyword,
+      .hljs-selector-tag {
+        color: #8959a8;
+      }
+
+      .hljs {
+        display: block;
+        overflow-x: auto;
+        color: #4d4d4c;
+        padding: 0.5em;
+      }
+
+      .hljs-emphasis {
+        font-style: italic;
+      }
+
+      .hljs-strong {
+        font-weight: bold;
+      }
+    </style>
+
+    <style>
+      /*
+ * Markdown PDF CSS
+ */
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', 'Ubuntu', 'Droid Sans', sans-serif,
+          'Meiryo';
+        padding: 0 12px;
+      }
+
+      pre {
+        background-color: #f8f8f8;
+        border: 1px solid #cccccc;
+        border-radius: 3px;
+        overflow-x: auto;
+        white-space: pre-wrap;
+        overflow-wrap: break-word;
+      }
+
+      pre:not(.hljs) {
+        padding: 23px;
+        line-height: 19px;
+      }
+
+      blockquote {
+        background: rgba(127, 127, 127, 0.1);
+        border-color: rgba(0, 122, 204, 0.5);
+      }
+
+      .emoji {
+        height: 1.4em;
+      }
+
+      code {
+        font-size: 14px;
+        line-height: 19px;
+      }
+
+      /* for inline code */
+      :not(pre):not(.hljs) > code {
+        color: #c9ae75; /* Change the old color so it seems less like an error */
+        font-size: inherit;
+      }
+
+      /* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+      .page {
+        page-break-after: always;
+      }
+    </style>
+
+    <script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+  </head>
+  <body>
+    <script>
+      mermaid.initialize({
+        startOnLoad: true,
+        theme:
+          document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+            ? 'dark'
+            : 'default',
+      });
+    </script>
+    <h1 id="%E8%87%AA%E5%B7%B1%E7%B4%B9%E4%BB%8B">自己紹介</h1>
+    <h2 id="%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1">基本情報</h2>
+    <ul>
+      <li>氏名：後醍院　良護</li>
+      <li>氏名（カナ）：ゴダイイン　ヨシモリ</li>
+      <li>生年月日：1997.01.30</li>
+      <li>年齢：25 歳</li>
+      <li>GitHub：https://github.com/hujimori</li>
+    </ul>
+    <h2 id="%E5%9C%A8%E7%B1%8D">在籍</h2>
+    <ul>
+      <li>2017.03： 東京都立産業技術高等専門学校 ものづくり工学科 電子情報工学コース 卒業</li>
+      <li>2017.04-2017.10：塾講師としてアルバイト</li>
+      <li>2017.11 - 2019.12： 株式会社ソルコム</li>
+      <li>2020.01 - 現在： 株式会社システムサポート ビジネスシステムソリューション事業部</li>
+    </ul>
+    <h2 id="%E8%81%B7%E5%8B%99%E8%A6%81%E7%B4%84">職務要約</h2>
+    <p>
+      高等専門学校を卒業後、客先常駐エンジニアとして複数の企業で保守、開発業務に従事しています。<br />
+      主に以下の業務を行いました。
+    </p>
+    <ul>
+      <li>通信事業者の回線契約システムの保守を行いました。</li>
+      <li>
+        高速道路施設のテナントの既存の売上げ管理システムの改修（基本設計、詳細設計、コーディング、単体テスト、結合テスト）を行
+        いました。
+      </li>
+      <li>生命保険会社の給与計算システムのメインフレームからオンプレミスへの移行、既存機能の改修を行いました。</li>
+    </ul>
+    <h2
+      id="%E8%81%B7%E5%8B%99%E7%B5%8C%E6%AD%B4%E9%96%8B%E5%A7%8B-%E5%B9%B4%E6%9C%88---%E7%B5%82%E4%BA%86-%E5%B9%B4%E6%9C%88-%E6%A5%AD%E5%8B%99%E5%90%8D"
+    >
+      職務経歴(開始 年.月 - 終了 年.月 業務名)
+    </h2>
+    <h3 id="201711---201801-%E7%A0%94%E4%BF%AE">2017.11 - 2018.01 研修</h3>
+    <h4 id="%E4%B8%BB%E3%81%AA%E6%A5%AD%E5%8B%99">【主な業務】</h4>
+    <p>外部研修で Java について学ぶ。</p>
+    <h3
+      id="201804---201805-%E9%80%9A%E4%BF%A1%E4%BA%8B%E6%A5%AD%E8%80%85%E3%81%AE%E5%9B%9E%E7%B7%9A%E5%A5%91%E7%B4%84%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E4%BF%9D%E5%AE%88"
+    >
+      2018.04 - 2018.05 通信事業者の回線契約システムの保守
+    </h3>
+    <h4 id="%E4%B8%BB%E3%81%AA%E6%A5%AD%E5%8B%99">【主な業務】</h4>
+    <ul>
+      <li>データパッチの作成</li>
+      <li>夜間システムの監視</li>
+      <li>システムの不具合の調査と対応</li>
+    </ul>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%8A%80%E8%A1%93">【使用した技術】</h4>
+    <ul>
+      <li>Eclipse</li>
+      <li>SQL</li>
+      <li>Java</li>
+      <li>Linux</li>
+    </ul>
+    <h3
+      id="201806---201907-%E3%82%A4%E3%83%B3%E3%82%BF%E3%83%BC%E3%83%81%E3%82%A7%E3%83%B3%E3%82%B8%E3%81%AE%E5%A3%B2%E4%B8%8A%E3%81%92%E7%AE%A1%E7%90%86%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E6%94%B9%E4%BF%AE"
+    >
+      2018.06 - 2019.07 インターチェンジの売上げ管理システムの改修
+    </h3>
+    <h4 id="%E4%B8%BB%E3%81%AA%E6%A5%AD%E5%8B%99">【主な業務】</h4>
+    <ul>
+      <li>基本設計、詳細設計</li>
+      <li>フロントエンド、バックエンドの開発</li>
+      <li>テストケースの作成</li>
+      <li>単体、結合テスト</li>
+    </ul>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%8A%80%E8%A1%93">【使用した技術】</h4>
+    <ul>
+      <li>Git</li>
+      <li>SQL</li>
+      <li>Eclipse</li>
+      <li>Java</li>
+      <li>JavaScript</li>
+      <li>jQuery</li>
+      <li>HTML/CSS</li>
+    </ul>
+    <h3
+      id="201910---201912-%E4%BC%81%E6%A5%AD%E5%90%91%E3%81%91%E4%BC%9A%E8%AD%B0%E5%AE%A4%E4%BA%88%E7%B4%84%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E3%81%AE%E9%96%8B%E7%99%BA"
+    >
+      2019.10 - 2019.12 企業向け会議室予約システムの開発
+    </h3>
+    <h4 id="%E4%B8%BB%E3%81%AA%E6%A5%AD%E5%8B%99">【主な業務】</h4>
+    <ul>
+      <li>バックエンドの開発</li>
+    </ul>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%8A%80%E8%A1%93">【使用した技術】</h4>
+    <ul>
+      <li>Git</li>
+      <li>Slack</li>
+      <li>SQL Server</li>
+      <li>Visual Studio</li>
+      <li>C#</li>
+      <li>ASP.NET</li>
+    </ul>
+    <h3
+      id="202001---202207-%E7%94%9F%E5%91%BD%E4%BF%9D%E9%99%BA%E4%BC%9A%E7%A4%BE%E3%81%AE%E7%B5%A6%E4%B8%8E%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0%E7%A7%BB%E8%A1%8C%E6%97%A2%E5%AD%98%E6%A9%9F%E8%83%BD%E3%81%AE%E6%94%B9%E4%BF%AE"
+    >
+      2020.01 - 2022.07 生命保険会社の給与システム移行、既存機能の改修
+    </h3>
+    <h4 id="%E4%B8%BB%E3%81%AA%E6%A5%AD%E5%8B%99">【主な業務】</h4>
+    <ul>
+      <li>メインフレームからオンプレに既存システムを移行</li>
+      <li>夜間時にシステムの監視</li>
+      <li>システムの害対応の手順書作成</li>
+      <li>システムを移行後の定例保守作業(データパッチ)のなど)の手順書作成</li>
+      <li>ユーザからの要件ヒアリング</li>
+      <li>開発工数の見積もり</li>
+      <li>基本設計、詳細設計</li>
+      <li>コーディング</li>
+      <li>テストケースの作成</li>
+      <li>単体テスト、結合テスト</li>
+    </ul>
+    <h4 id="%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E6%8A%80%E8%A1%93">【使用した技術】</h4>
+    <ul>
+      <li>Java</li>
+      <li>Git</li>
+      <li>SQL</li>
+      <li>Eclipse</li>
+      <li>bash</li>
+    </ul>
+    <h2 id="%E6%9C%AC%E6%A5%AD%E4%BB%A5%E5%A4%96%E3%81%A7%E3%81%AE%E6%B4%BB%E5%8B%95">本業以外での活動</h2>
+    <h3 id="%E5%89%AF%E6%A5%AD">副業</h3>
+    <h4 id="%E6%A5%AD%E5%8B%99%E5%86%85%E5%AE%B9">業務内容</h4>
+    <p>
+      スタートアップ企業に 2022.08 から join しています。<br />
+      担当は SNS アプリケーションのバックエンドエンジニアです。<br />
+      以下のようなサイクルで開発を行っています。<br />
+      1.　 PDM と経営陣で機能の要件を決定します。<br />
+      2.　 PDM から渡された要件を元にバックエンドの機能の仕様を決定します<br />
+      3.　 1~2 週間を目安に 1 つの機能の開発を行います。
+    </p>
+    <h3 id="%E3%82%A4%E3%83%99%E3%83%B3%E3%83%88">イベント</h3>
+    <ul>
+      <li>ISUCON 12 にチーム「DREAM TEAM TRIANGLE」で参加（2022 年）順位 103 位</li>
+      <li>ISUCON 11 に &quot;以下略&quot;（2021 年）</li>
+      <li>ISUCON 10 に &quot;以下略&quot;（2020 年）</li>
+      <li>セキュリティキャンプ全国大会に参加（2015 年）</li>
+    </ul>
+    <h2 id="%E3%82%B9%E3%82%AD%E3%83%AB">スキル</h2>
+    <h3 id="%E8%A8%80%E8%AA%9E">言語</h3>
+    <ul>
+      <li>Go：主に副業とプライベートの勉強で触っています。</li>
+      <li>Java：本業で触っています。</li>
+      <li>Python：少しだけ書けます。</li>
+      <li>HTML/CSS：少しだけ書けます。</li>
+    </ul>
+    <h3
+      id="%E3%83%9F%E3%83%89%E3%83%AB%E3%82%A6%E3%82%A7%E3%82%A2%E3%83%BB%E3%83%84%E3%83%BC%E3%83%AB%E3%83%BB%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF"
+    >
+      ミドルウェア・ツール・フレームワーク
+    </h3>
+    <p>本業以外で使用したものは下記のとおりです。</p>
+    <ul>
+      <li>Echo</li>
+      <li>Gorm</li>
+      <li>MySQL</li>
+      <li>Nginx</li>
+      <li>Pyroscope</li>
+      <li>Docker</li>
+      <li>Visual Studio Code</li>
+      <li>Eclipse</li>
+      <li>Table Plus</li>
+      <li>Slack</li>
+      <li>GitHub</li>
+      <li>スクラム開発</li>
+    </ul>
+    <h2
+      id="%E6%B1%82%E3%82%81%E3%82%8B%E3%83%AF%E3%83%BC%E3%82%AF%E3%82%B9%E3%82%BF%E3%82%A4%E3%83%AB%E3%83%BB%E3%82%AB%E3%83%AB%E3%83%81%E3%83%A3%E3%83%BC"
+    >
+      求めるワークスタイル・カルチャー
+    </h2>
+    <ul>
+      <li>技術を突き詰めて仕事ができる環境を望みます。</li>
+      <li>人と議論を交えながら仕事をすることを好みます。</li>
+      <li>どんな仕事をするにしても「目的」がハッキリしていることを好みます。</li>
+      <li>仕事に対するフィードバックを得られることを好みます。</li>
+    </ul>
+    <h2 id="%E8%87%AA%E5%88%86%E3%81%AE%E5%BC%B7%E3%81%BF%E3%83%BB%E5%BC%B1%E3%81%BF">自分の強み・弱み</h2>
+    <h3 id="%E5%BC%B7%E3%81%BF">強み</h3>
+    <ul>
+      <li>
+        新しい事に対して挑戦的です。趣味の欄にも書いていますが、私は社会人になってから、エレキギターとピアノを 4
+        年間継続して 教わっています。
+      </li>
+      <li>自分が成長する過程を楽しむことができます。</li>
+      <li>何をするにしても「まずは小さい所からコツコツ」を実践しています。</li>
+      <li>好きなこと・楽しいことは時間を忘れて没頭します。</li>
+    </ul>
+    <h3 id="%E5%BC%B1%E3%81%BF">弱み</h3>
+    <ul>
+      <li>好きなこと・楽しいことは時間を忘れて没頭する反面、自分の体力管理がおろそかになることがあります。</li>
+      <li>毎日決まったルーティンをこなすのが苦手です。</li>
+      <li>緊張に弱いです。</li>
+    </ul>
+    <h2 id="%E8%B6%A3%E5%91%B3%E3%83%BB%E5%A5%BD%E3%81%8D%E3%81%AA%E3%81%93%E3%81%A8">趣味・好きなこと</h2>
+    <h3 id="%E3%82%B2%E3%83%BC%E3%83%A0">ゲーム</h3>
+    <p>
+      主に RPG を好んでプレイします。<br />
+      ペルソナ 5/FE 風化雪月/月姫/NEEDY GIRL OVERDOSE/FE H/プリンセスコネクト/Fit Boxing
+    </p>
+    <h3 id="%E3%82%A8%E3%83%AC%E3%82%AD%E3%82%AE%E3%82%BF%E3%83%BC%E3%83%BB%E3%83%94%E3%82%A2%E3%83%8E">
+      エレキギター・ピアノ
+    </h3>
+    <p>
+      社会人になってから 4 年間程度、他人からエレキギターとピアノを教わっています。<br />
+      たまに演奏動画を YouTube にアップロードしています。
+    </p>
+  </body>
+</html>
